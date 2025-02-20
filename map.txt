@@ -1,0 +1,12 @@
+Basement Room1 null
+Room1 Room2 Basement
+Room2 Room3 Room1
+Room3 Room4 Room2
+Room4 Room5 Room3
+Room5 Room6 Room4
+Room6 Room7 Room5
+Room7 Room8 Room6
+Room8 Room9 Room7
+Room9 MistyForest Room8
+MistyForest PoliceCar Room9
+PoliceCar null MistyForest
