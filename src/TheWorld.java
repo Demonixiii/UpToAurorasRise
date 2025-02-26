@@ -35,4 +35,11 @@ public boolean loadWorld(){
     }
 }
 
+public Location getCurrentPosition() {
+    return mapatonni.get(currentPosition);
+}
+    public HashMap<String, Location> getMap() {
+        return mapatonni;
+    }
+
 }

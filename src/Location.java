@@ -8,4 +8,17 @@ public class Location {
         this.backward = backward;
         this.forward = forward;
     }
+
+    public Location() {
+    }
+
+    public String getBackward() {
+        return backward;
+    }
+
+    public String getForward() {
+        return forward;
+    }
+
+
 }
