@@ -20,6 +20,10 @@ public class Location {
         return forward;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "Location{" +
