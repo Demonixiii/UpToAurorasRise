@@ -3,7 +3,10 @@ import java.util.ArrayList;
 public class Miles {
     private int health = 3;
     private int atk = 0;
-    private ArrayList<Item> itemsOwned = new ArrayList<>();
+    private static ArrayList<Item> itemsOwned = new ArrayList<>();
+    public static void addItem(Item i){
+        itemsOwned.add(i);
+    }
 
     public Miles() {
     }

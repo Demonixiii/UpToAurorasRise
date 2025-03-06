@@ -28,10 +28,12 @@ public class Schmove implements Command {
             }
         }
         else if (currentPosition.getForward() == null || currentPosition.getBackward() == null) {
-            return "There is no room in that direction, so you decide to stay here 😎";
+            return "There is no room in that direction.";
         }
         return null;
     }
+
+
 
     @Override
     public boolean exit() {

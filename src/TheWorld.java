@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class TheWorld {
@@ -11,26 +12,26 @@ public boolean loadWorld(){
     try (BufferedReader b = new BufferedReader(new FileReader("map.txt"))){
         String line;
         while ((line = b.readLine()) != null){
-            String[] lines = line.split(".");
-            if (lines[1] == "null") {
+            String[] lines = line.split("/");
+            if (lines[1].equals("null")) {
                 Location location = new Location(
                         lines[0], null, lines[2]
                 );
-                mapatonni.put(lines[1], location);
-            } else if (lines[2] == "null") {
+                mapatonni.put(lines[0], location);
+            } else if (lines[2].equals("null")) {
                 Location location = new Location(
                         lines[0], lines[1], null
                 );
-                mapatonni.put(lines[1], location);
+                mapatonni.put(lines[0], location);
             } else {
                 Location location = new Location(
                         lines[0], lines[1], lines[2]
                 );
-                mapatonni.put(lines[1], location);
+                mapatonni.put(lines[0], location);
             }
         }
         return true;
-    }catch (Exception e){
+    }catch (IOException e){
         return false;
     }
 }
@@ -42,4 +43,7 @@ public Location getCurrentPosition() {
         return mapatonni;
     }
 
+    public void setCurrentPosition(String currentPosition) {
+        this.currentPosition = currentPosition;
+    }
 }

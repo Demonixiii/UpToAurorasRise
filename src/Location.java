@@ -3,7 +3,7 @@ public class Location {
     private String forward;
     private String backward;
 
-    public Location(String name, String backward, String forward) {
+    public Location(String name, String forward, String backward) {
         this.name = name;
         this.backward = backward;
         this.forward = forward;
@@ -20,5 +20,12 @@ public class Location {
         return forward;
     }
 
-
+    @Override
+    public String toString() {
+        return "Location{" +
+                "name='" + name + '\'' +
+                ", forward='" + forward + '\'' +
+                ", backward='" + backward + '\'' +
+                '}';
+    }
 }
