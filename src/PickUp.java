@@ -12,7 +12,7 @@ public class PickUp implements Command{
                 if (Miles.isItemAdded("Golden Key")) {
                     Miles.addItem(new Item("Knife", 10));
                 }else {
-                    return "You need Goden Key to unlock this item.";
+                    return "You need Golden Key to unlock this item.";
                 }
             case "Room4":
                 Miles.addItem(new Item("Golden Key"));
