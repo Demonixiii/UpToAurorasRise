@@ -46,8 +46,10 @@ public class PickUp implements Command{
                     Miles.addItem(new Item("Statue Piece 2/2"));
                     return "Statue Piece 2/2 added to inventory.";
             }
+            Investigate.setWasPerformed(false);
+        }else {
+            return "Investigate first.";
         }
-        Investigate.setWasPerformed(false);
         return "";
     }
 
