@@ -5,5 +5,10 @@ public class Main {
 
         System.out.println(c.introduction());
 
+        TheWorld world = new TheWorld();
+        world.loadWorld();
+        System.out.println(world.getCurrentPosition());
+
+        c.start();
     }
 }

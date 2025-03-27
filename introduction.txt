@@ -15,4 +15,5 @@ You take a few deep breaths to calm down. You're defenseless again since the gla
 
 You don't know why you're here, but you know you have to get to safety as soon as possible.
 Especially if there's more of these creatures crawling around.
-+
+
+To start type "help".
