@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Miles {
-    private int health = 3;
-    private static int atk = 0;
+    private int health;
+    private static int atk;
     private static ArrayList<Item> itemsOwned = new ArrayList<>();
     public static void addItem(Item i){
         itemsOwned.add(i);
@@ -17,6 +17,8 @@ public class Miles {
     };
 
     public Miles() {
+        this.health = 3;
+        this.atk = 0;
     }
 
     public int getHealth() {

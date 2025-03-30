@@ -1,4 +1,3 @@
-import java.awt.image.Kernel;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,7 +13,7 @@ public class Console {
     private String returned = "";
 
     private void association(){
-        commands.put("go",new Schmove());
+        commands.put("go",new Schmove(world));
         commands.put("investigate", new Investigate(world));
         commands.put("pickup", new PickUp(world));
         commands.put("fight", new Fight(miles,world));

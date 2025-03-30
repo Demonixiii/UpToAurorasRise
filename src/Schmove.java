@@ -2,36 +2,45 @@ import java.util.Scanner;
 
 public class Schmove implements Command {
     private Scanner sc = new Scanner(System.in);
-    private TheWorld map = new TheWorld();
+    private TheWorld map;
     private Location currentPosition = new Location();
+
+    public Schmove(TheWorld map) {
+        this.map = map;
+        map.loadWorld();
+        currentPosition = map.getCurrentPosition();
+    }
 
     @Override
     public String execute() {
-        currentPosition = map.getCurrentPosition();
+
         System.out.println("Do you wish to go further or go back?");
         String input = sc.nextLine();
-        System.out.println(currentPosition);
+
         if (input.equalsIgnoreCase("further")) {
-            if (currentPosition.getForward()!= null){
-                if (map.getMap().containsKey(currentPosition.getForward())){
-                    currentPosition = map.getMap().get(currentPosition.getForward());
-                    return "Moved further successfully";
-                }
+            if (currentPosition.getForward() != null && map.getMap().containsKey(currentPosition.getForward())) {
+                currentPosition = map.getMap().get(currentPosition.getForward());
+                System.out.println("New Position (after moving forward): " + currentPosition);
+                return "Moved further successfully";
+            } else {
+                return "There is no room further.";
             }
         }
         else if (input.equalsIgnoreCase("back")) {
-            if (currentPosition.getBackward()!= null){
-                if (map.getMap().containsKey(currentPosition.getBackward())){
-                    currentPosition = map.getMap().get(currentPosition.getBackward());
-                    return "Moved backward successfully";
-                }
+            if (currentPosition.getBackward() != null && map.getMap().containsKey(currentPosition.getBackward())) {
+                currentPosition = map.getMap().get(currentPosition.getBackward());
+                System.out.println("New Position (after moving back): " + currentPosition);
+                return "Moved backward successfully";
+            } else {
+                return "There is no room back.";
             }
         }
-        else if (currentPosition.getForward() == null || currentPosition.getBackward() == null) {
-            return "There is no room in that direction.";
+        else {
+            return "Invalid input. Please enter 'further' or 'back'.";
         }
-        return null;
     }
+
+
 
 
 
