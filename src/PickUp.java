@@ -45,6 +45,9 @@ public class PickUp implements Command{
                 case "Room9":
                     Miles.addItem(new Item("Statue Piece 2/2"));
                     return "Statue Piece 2/2 added to inventory.";
+                default:
+                    System.out.println("Nothing to pick up here");
+                    break;
             }
             Investigate.setWasPerformed(false);
         }else {

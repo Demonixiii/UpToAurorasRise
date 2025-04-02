@@ -26,6 +26,7 @@ public class Console {
         String comm = scanner.nextLine();
         comm = comm.trim();
         comm = comm.toLowerCase();
+        this.exit = commands.get(comm).exit();
         if (commands.containsKey(comm)){
             System.out.println(commands.get(comm).execute());
         }else {
@@ -58,4 +59,7 @@ public class Console {
         }
     }
 
+    public TheWorld getWorld() {
+        return world;
+    }
 }

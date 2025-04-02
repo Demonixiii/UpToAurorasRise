@@ -70,8 +70,9 @@ public class Investigate implements Command{
                 }else {
                     return "There is a Piece of a statue on the floor.";
                 }
+            default:
+                return "Nothing to investigate here";
         }
-        return "";
     }
 
     public static boolean isWasPerformed() {

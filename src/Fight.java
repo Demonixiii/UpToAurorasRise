@@ -35,20 +35,24 @@ public class Fight implements Command{
     @Override
     public String execute() {
         String decision;
+        if (w1.getCurrentPosition().equals("Room2") || w1.getCurrentPosition().equals("Room6")||w1.getCurrentPosition().equals("MistyForest")) {
         System.out.println("Do you wish to try and kill the monster or flee to the previous room?");
-        decision = sc.nextLine();
-        if (decision.equalsIgnoreCase("kill")){
-            if (w1.getCurrentPosition().equals("Room2")){
-                tryToKill(miles,new Monster(5));
-            }else if (w1.getCurrentPosition().equals("Room6")){
-                tryToKill(miles,new Monster(15));
-            }else if (w1.getCurrentPosition().equals("MistyForest")){
-                tryToKill(miles,new Monster(50));
+            decision = sc.nextLine();
+            if (decision.equalsIgnoreCase("kill")) {
+                if (w1.getCurrentPosition().equals("Room2")) {
+                    tryToKill(miles, new Monster(5));
+                } else if (w1.getCurrentPosition().equals("Room6")) {
+                    tryToKill(miles, new Monster(15));
+                } else if (w1.getCurrentPosition().equals("MistyForest")) {
+                    tryToKill(miles, new Monster(50));
+                }
+            } else if (decision.equalsIgnoreCase("flee")) {
+                flee();
+            } else {
+                return "Please only use commands 'kill' or 'flee'.";
             }
-        } else if (decision.equalsIgnoreCase("flee")) {
-            flee();
         }else {
-            return "Please only use commands 'kill' or 'flee'.";
+            return "Nobody to fight here.";
         }
         return "";
     }
