@@ -8,7 +8,11 @@ private String start = "Basement";
 private String currentPosition = start;
 private HashMap<String,Location> mapatonni = new HashMap();
 
-public boolean loadWorld(){
+    /**
+     * Loads the world/map from file into a hashmap.
+     * @return Returns whether world/map was loaded.
+     */
+    public boolean loadWorld(){
     try (BufferedReader b = new BufferedReader(new FileReader("map.txt"))){
         String line;
         while ((line = b.readLine()) != null){

@@ -6,6 +6,10 @@ public class Talk implements Command {
         this.w1 = w1;
     }
 
+    /**
+     * Wins the game.
+     * @return Ending
+     */
     @Override
     public String execute() {
         setExitance(true);

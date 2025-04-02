@@ -6,6 +6,10 @@ public class Investigate implements Command{
         this.w1 = w1;
     }
 
+    /**
+     * Informs the player of their surroundings.
+     * @return Returns the interactable items in current room or that no items can be picked up
+     */
     @Override
     public String execute() {
         wasPerformed = true;

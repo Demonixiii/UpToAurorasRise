@@ -12,6 +12,9 @@ public class Console {
     private HashMap<String,Command> commands = new HashMap<>();
     private String returned = "";
 
+    /**
+     * Associates commands with their purpose
+     */
     private void association(){
         commands.put("go",new Schmove(world));
         commands.put("investigate", new Investigate(world));
@@ -22,6 +25,9 @@ public class Console {
         commands.put("help", new Help());
     }
 
+    /**
+     * Reads user's commands and executes them
+     */
     private void useCom(){
         try {
             String comm = scanner.nextLine();
@@ -42,6 +48,9 @@ public class Console {
         }
     }
 
+    /**
+     * Starts, plays and ends the game.
+     */
     public void start(){
         association();
         world.loadWorld();
@@ -55,6 +64,10 @@ public class Console {
         }
     }
 
+    /**
+     * Loads introduction from file.
+     * @return Introduction in string
+     */
     public String introduction() {
         try (BufferedReader b = new BufferedReader(new FileReader("introduction.txt"))) {
             String line;

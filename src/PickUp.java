@@ -5,6 +5,11 @@ public class PickUp implements Command{
         this.w1 = w1;
     }
 
+    /**
+     * Makes sure room was investigated first and dds item to player's inventory.
+     * In case of item being locked behind a puzzle, makes sure player owns items to unlock it.
+     * @return Informs player of the consequences of their decisions
+     */
     @Override
     public String execute() {
         if (Investigate.isWasPerformed()) {

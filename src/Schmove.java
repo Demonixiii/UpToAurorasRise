@@ -11,6 +11,11 @@ public class Schmove implements Command {
         currentPosition = map.getCurrentPosition();
     }
 
+    /**
+     * Changes current position depending on player's choice.
+     * Makes sure desired room is available and no monster is in the way.
+     * @return Lets player know of special cases and if they moved.
+     */
     @Override
     public String execute() {
         System.out.println("Do you wish to go further or go back?");

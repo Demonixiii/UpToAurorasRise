@@ -14,6 +14,12 @@ public class Fight implements Command{
         this.w1 = w1;
     }
 
+    /**
+     * Evaluates whether player wins or loses a heart.
+     * @param m1 Player
+     * @param m2 Monster
+     * @return Lose or win
+     */
     public String tryToKill(Miles m1, Monster m2){
         if (m1.getAtk() < m2.getHealth()){
             m1.setHealth(m1.getHealth()-1);
@@ -25,6 +31,10 @@ public class Fight implements Command{
         return "You've won! Remaining health: " + m1.getHealth();
     }
 
+    /**
+     * Gives player one more chance to rethink if they have enough ATK to kill the monster.
+     * @return Informs about change of current position
+     */
     public String flee(){
         w1.loadWorld();
         w1.setCurrentPosition(w1.getCurrentPosition().getBackward());
@@ -39,6 +49,10 @@ public class Fight implements Command{
         return w1;
     }
 
+    /**
+     * Confirms whether player wants to try and kill the monster or flee, executes selected command.
+     * @return Informs player of the consequences of their decisions
+     */
     @Override
     public String execute() {
         String decision;
