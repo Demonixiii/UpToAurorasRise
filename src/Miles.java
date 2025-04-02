@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Miles {
-    private int health;
+    private static int health;
     private static int atk;
     private static ArrayList<Item> itemsOwned = new ArrayList<>();
     public static void addItem(Item i){
@@ -21,18 +21,26 @@ public class Miles {
         this.atk = 0;
     }
 
-    public int getHealth() {
+    public static int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public static void setHealth(int health) {
+        if(health>0){
+        Miles.health = health;
+        }else {
+            Miles.health = 0;
+        }
+
     }
 
     public static int getAtk() {
         return atk;
     }
 
+    /**
+     * Buffs the main character Miles
+     */
     public static void buff(){
      int buff = 0;
         for (int i = 0; i< itemsOwned.size(); i++){

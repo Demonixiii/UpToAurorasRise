@@ -37,7 +37,7 @@ public class Schmove implements Command {
                     currentPosition = map.getMap().get(nextRoom);
                     map.setCurrentPosition(nextRoom);
                     System.out.println("New Position (after moving forward): " + currentPosition);
-                }else if (nextRoom.equals("Room3") && !Fight.isKilled3() && !Fight.isKilled4()) {
+                }else if (nextRoom.equals("PoliceCar") && !Fight.isKilled3() && !Fight.isKilled4()) {
                     return "You have to kill the monsters first.";
                 }else {
                     currentPosition = map.getMap().get(nextRoom);

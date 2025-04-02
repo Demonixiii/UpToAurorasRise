@@ -17,6 +17,9 @@ public class Fight implements Command{
     public String tryToKill(Miles m1, Monster m2){
         if (m1.getAtk() < m2.getHealth()){
             m1.setHealth(m1.getHealth()-1);
+            if(m1.getHealth() == 0){
+                return "You have been successfully killed!";
+            }
             return "You've lost. -1 health. Remaining health: " + m1.getHealth();
         }
         return "You've won! Remaining health: " + m1.getHealth();
@@ -56,20 +59,27 @@ public class Fight implements Command{
                     }
                 } else if (w1.getCurrentPosition().getName().equals("MistyForest")) {
                     System.out.println("Do you want to try and kill Monster 1 or 2?");
-                    dec = sc.nextInt();
-                    if (dec == 1) {
-                        System.out.println(tryToKill(miles, new Monster(30)));
-                        if (Miles.getAtk() >= 30){
-                            killed3 = true;
+                    boolean defeated1 = false;
+                    boolean defeated2 = false;
+
+                    while(!defeated1 && !defeated2) {
+                        dec = sc.nextInt();
+                        if (dec == 1 && !defeated1) {
+                            System.out.println(tryToKill(miles, new Monster(30)));
+                            if (Miles.getAtk() >= 30) {
+                                killed3 = true;
+                                defeated1 = true;
+                            }
                         }
-                    }
-                    if (dec == 2) {
-                        System.out.println(tryToKill(miles, new Monster(50)));
-                        if (Miles.getAtk() >= 50){
-                            killed4 = true;
+                        if (dec == 2 && !defeated2) {
+                            System.out.println(tryToKill(miles, new Monster(50)));
+                            if (Miles.getAtk() >= 50) {
+                                killed4 = true;
+                                defeated2 = true;
+                            }
+                        } else {
+                            return "Please enter 1 or 2";
                         }
-                    } else {
-                        return "Please enter 1 or 2";
                     }
                 }
             } else if (decision.equalsIgnoreCase("flee")) {

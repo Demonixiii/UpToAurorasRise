@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Die implements Command{
-    @Override
-    public String execute() {
+public class Die{
+
+    public static String die() {
         Random rd = new Random();
         ArrayList<String> gameOver = new ArrayList<>();
         gameOver.add("GAME OVER");
@@ -14,8 +14,7 @@ public class Die implements Command{
         return gameOver.get(rd.nextInt(4));
     }
 
-    @Override
-    public boolean exit() {
+    public static boolean exit() {
         return true;
     }
 }
