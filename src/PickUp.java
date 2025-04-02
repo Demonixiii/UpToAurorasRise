@@ -14,11 +14,13 @@ public class PickUp implements Command{
                     return "Clock Pendulum added to inventory.";
                 case "Room1":
                     Miles.addItem(new Item("Crowbar", 5));
-                    return "Crowbar added to inventory.";
+                    Miles.buff();
+                    return "Crowbar added to inventory." + "\n" + "Your ATK is now " + Miles.getAtk();
                 case "Room3":
                     if (Miles.isItemAdded("Golden Key")) {
                         Miles.addItem(new Item("Knife", 10));
-                        return "Knife added to inventory.";
+                        Miles.buff();
+                        return "Knife added to inventory."+ "\n" + "Your ATK is now " + Miles.getAtk();
                     } else {
                         return "You need Golden Key to unlock this item.";
                     }
@@ -34,11 +36,13 @@ public class PickUp implements Command{
                     }
                 case "Room7":
                     Miles.addItem(new Item("Gun", 15));
-                    return "Gun added to inventory.";
+                    Miles.buff();
+                    return "Gun added to inventory."+ "\n" + "Your ATK is now " + Miles.getAtk();
                 case "Room8":
                     if (Miles.isItemAdded("Statue Piece 1/2") && Miles.isItemAdded("Statue Piece 2/2")) {
                         Miles.addItem(new Item("Chainsaw", 20));
-                        return "Chainsaw added to inventory.";
+                        Miles.buff();
+                        return "Chainsaw added to inventory."+ "\n" + "Your ATK is now " + Miles.getAtk();
                     } else {
                         return "You need Statue Piece 1/2 and Statue Piece 2/2 to unlock this item.";
                     }

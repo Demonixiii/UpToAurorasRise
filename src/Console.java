@@ -11,6 +11,11 @@ public class Console {
     private Miles miles = new Miles();
     private HashMap<String,Command> commands = new HashMap<>();
     private String returned = "";
+    private void death(){
+        if (miles.getHealth() <= 0){
+            new Die();
+        }
+    }
 
     private void association(){
         commands.put("go",new Schmove(world));
@@ -23,14 +28,18 @@ public class Console {
     }
 
     private void useCom(){
-        String comm = scanner.nextLine();
-        comm = comm.trim();
-        comm = comm.toLowerCase();
-        this.exit = commands.get(comm).exit();
-        if (commands.containsKey(comm)){
-            System.out.println(commands.get(comm).execute());
-        }else {
-            System.out.println("No such command exists.");
+        try {
+            String comm = scanner.nextLine();
+            comm = comm.trim();
+            comm = comm.toLowerCase();
+            this.exit = commands.get(comm).exit();
+            if (commands.containsKey(comm)) {
+                System.out.println(commands.get(comm).execute());
+            } else {
+                System.out.println("No such command exists.");
+            }
+        }catch (Exception e){
+            System.out.println("something went wog");
         }
     }
 
@@ -41,6 +50,7 @@ public class Console {
         try {
             do {
                 useCom();
+                death();
             }while (!exit);
         } catch (Exception e) {
             throw new RuntimeException(e);

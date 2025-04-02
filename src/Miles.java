@@ -33,12 +33,12 @@ public class Miles {
         return atk;
     }
 
-    public void buff(){
+    public static void buff(){
      int buff = 0;
         for (int i = 0; i< itemsOwned.size(); i++){
          buff += itemsOwned.get(i).getAtk();
      }
-        this.atk += buff;
+        atk = buff;
     }
 
     public static void setAtk(int atk) {
